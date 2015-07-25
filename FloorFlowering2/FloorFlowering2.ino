@@ -32,6 +32,9 @@ void setup() {
   RFduinoBLE.deviceName = "Defcon Lanyard";
   RFduinoBLE.advertisementInterval = 2000;
   RFduinoBLE.advertisementData = "LED";
+  //Reduce the power level of the BT advertisements sent out to -20dBm (BT-7/25/2015)
+  // See if the helps with the LED glitch encoutered durint an advertisement transmit.
+  RFduinoBLE.txPowerLevel = -20;
   //RFduinoBLE.begin();
   // tell FastLED about the LED strip configuration
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
